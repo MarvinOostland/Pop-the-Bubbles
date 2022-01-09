@@ -228,10 +228,6 @@ class Game(object):
 
     @staticmethod
     def get_highscore() -> int:
-        """
-        Getting highscore from file
-        """
-
         with open(Settings.path_highscore, "r", encoding="utf8") as file:
             highscore = int(file.read())
 
@@ -239,18 +235,10 @@ class Game(object):
 
     @staticmethod
     def set_highscore(highscore: int) -> None:
-        """
-        Setting highscore to file
-        """
-
         with open(Settings.path_highscore, "w", encoding="utf8") as file:
             file.write(str(highscore))
 
     def save_highscore(self) -> None:
-        """
-        Saving highscore to file
-        """
-
         if self.points > Game.get_highscore():
             Game.set_highscore(self.points)
 
